@@ -1,5 +1,6 @@
 import {StyleSheet, Text, View} from "react-native";
 import {ITeleopState} from "../Dashboard/types";
+import {RadioButton} from "react-native-paper";
 
 interface setState {
     (setState: ITeleopState): void;
@@ -12,126 +13,126 @@ interface IProps {
 
 export default function Teleop(props: IProps) {
     return (
-        <>
+        <View style={styles.viewer}>
             <h1>Teleop</h1>
 
             <View style={styles.container}>
-                <h3 style={{justifySelf: "center", alignSelf: "center"}}>Shots Taken</h3>
+                <Text style={{justifySelf: "center", alignSelf: "center"}}>Shots Taken</Text>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shotsTaken === "none"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shotsTaken === "none" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotsTaken: "none"})
                                }}/>
-                        <label>None</label>
+                        <Text>None</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shotsTaken === "some"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shotsTaken === "some" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotsTaken: "some"})
                                }}/>
-                        <label>Some</label>
+                        <Text>Some</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shotsTaken === "lots"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shotsTaken === "lots" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotsTaken: "lots"})
                                }}/>
-                        <label>Lots</label>
+                        <Text>Lots</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio"
-                               checked={props.state.shotsTaken === "notObserved"}
-                               onChange={() => {
+                        <RadioButton
+                               status={props.state.shotsTaken === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotsTaken: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
 
             <View style={styles.container}>
-                <h3 style={{justifySelf: "center", alignSelf: "center"}}>Shot Accuracy</h3>
+                <Text style={{justifySelf: "center", alignSelf: "center"}}>Shot Accuracy</Text>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio"
-                               checked={props.state.shotAccuracy === "low"}
-                               onChange={() => {
+                        <RadioButton
+                               status={props.state.shotAccuracy === "low" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotAccuracy: "low"})
                                }}/>
-                        <label>Low</label>
+                        <Text>Low</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shotAccuracy === "medium"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shotAccuracy === "medium" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotAccuracy: "medium"})
                                }}/>
-                        <label>Medium</label>
+                        <Text>Medium</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shotAccuracy === "high"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shotAccuracy === "high" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotAccuracy: "high"})
                                }}/>
-                        <label>High</label>
+                        <Text>High</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shotAccuracy === "notObserved"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shotAccuracy === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotAccuracy: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
 
             <View style={styles.container}>
-                <h3 style={{justifySelf: "center", alignSelf: "center"}}>Target Goal</h3>
+                <Text style={{justifySelf: "center", alignSelf: "center"}}>Target Goal</Text>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "none"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "none" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "none"})
                                }}/>
-                        <label>None</label>
+                        <Text>None</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "low"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "low" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "low"})
                                }}/>
-                        <label>Low</label>
+                        <Text>Low</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "high"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "high" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "high"})
                                }}/>
-                        <label>High</label>
+                        <Text>High</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "both"}
+                        <input checked={props.state.targetGoal === "both"}
                                onChange={() => {
                                    props.setState({...props.state, targetGoal: "both"})
                                }}/>
-                        <label>Both</label>
+                        <Text>Both</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "notObserved"}
+                        <input checked={props.state.targetGoal === "notObserved"}
                                onChange={() => {
                                    props.setState({...props.state, targetGoal: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
@@ -140,43 +141,43 @@ export default function Teleop(props: IProps) {
                 <h3 style={{justifySelf: "center", alignSelf: "center"}}>Cargo Intake</h3>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoIntake === "none"}
+                        <input checked={props.state.cargoIntake === "none"}
                                onChange={() => {
                                    props.setState({...props.state, cargoIntake: "none"})
                                }}/>
-                        <label>None</label>
+                        <Text>None</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoIntake === "terminal"}
+                        <input checked={props.state.cargoIntake === "terminal"}
                                onChange={() => {
                                    props.setState({...props.state, cargoIntake: "terminal"})
                                }}/>
-                        <label>Terminal</label>
+                        <Text>Terminal</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoIntake === "ground"}
+                        <input checked={props.state.cargoIntake === "ground"}
                                onChange={() => {
                                    props.setState({...props.state, cargoIntake: "ground"})
                                }}/>
-                        <label>Ground</label>
+                        <Text>Ground</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoIntake === "both"}
+                        <input checked={props.state.cargoIntake === "both"}
                                onChange={() => {
                                    props.setState({...props.state, cargoIntake: "both"})
                                }}/>
-                        <label>Both</label>
+                        <Text>Both</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoIntake === "notObserved"}
+                        <input checked={props.state.cargoIntake === "notObserved"}
                                onChange={() => {
                                    props.setState({...props.state, cargoIntake: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
@@ -185,43 +186,43 @@ export default function Teleop(props: IProps) {
                 <h3 style={{justifySelf: "center", alignSelf: "center"}}>Shooting Spot</h3>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shootingSpot === "none"}
+                        <input checked={props.state.shootingSpot === "none"}
                                onChange={() => {
                                    props.setState({...props.state, shootingSpot: "none"})
                                }}/>
-                        <label>None</label>
+                        <Text>None</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shootingSpot === "close"}
+                        <input checked={props.state.shootingSpot === "close"}
                                onChange={() => {
                                    props.setState({...props.state, shootingSpot: "close"})
                                }}/>
-                        <label>Close</label>
+                        <Text>Close</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shootingSpot === "far"}
+                        <input checked={props.state.shootingSpot === "far"}
                                onChange={() => {
                                    props.setState({...props.state, shootingSpot: "far"})
                                }}/>
-                        <label>Far</label>
+                        <Text>Far</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shootingSpot === "adjustable"}
+                        <input checked={props.state.shootingSpot === "adjustable"}
                                onChange={() => {
                                    props.setState({...props.state, shootingSpot: "adjustable"})
                                }}/>
-                        <label>Adjustable</label>
+                        <Text>Adjustable</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shootingSpot === "notObserved"}
+                        <input checked={props.state.shootingSpot === "notObserved"}
                                onChange={() => {
                                    props.setState({...props.state, shootingSpot: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
@@ -234,15 +235,20 @@ export default function Teleop(props: IProps) {
                 </View>
                 <View style={{flex: 1, height: 1, backgroundColor: 'black'}}/>
             </View>
-        </>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
+    viewer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    },
     container: {
         // @ts-ignore
         display: "grid", gap: "10px", padding: "10px", gridTemplateColumns: "auto auto",
     }, input: {
-        display: "flex", flexDirection: "row"
+        display: "flex", flexDirection: "row", alignItems: "center"
     }
 });

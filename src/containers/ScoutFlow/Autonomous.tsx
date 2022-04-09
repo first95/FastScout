@@ -1,5 +1,7 @@
 import {StyleSheet, Text, View} from "react-native";
 import {IAutonState, IPreMatchState} from "../Dashboard/types";
+import Header from "../../components/Header";
+import {Checkbox, RadioButton} from "react-native-paper";
 
 interface setState {
     (setState: IAutonState): void;
@@ -12,109 +14,109 @@ interface IProps {
 
 export default function Autonomous(props: IProps) {
     return (
-        <>
-            <h1>Autonomous</h1>
+        <View style={styles.viewer}>
+            <Header text={"Autonomous"} />
 
             <View style={styles.container}>
-                <label>Taxi</label>
-                <input type={"checkbox"} checked={props.state.taxi}
-                    onChange={(event) => props.setState({...props.state, taxi: event.target.checked})}/>
+                <Text>Taxi</Text>
+                <Checkbox status={props.state.taxi ? "checked" : "unchecked"}
+                    onPress={() => props.setState({...props.state, taxi: !props.state.taxi})}/>
 
-                <h3 style={{justifySelf: "center", alignSelf: "center"}}>Auton Cargo Scored</h3>
+                <Text style={{justifySelf: "center", alignSelf: "center"}}>Auton Cargo Scored</Text>
                 <View>
                     <View style={styles.input}>
                         <View style={styles.input}>
-                            <input type="radio" checked={props.state.cargoScored === 0}
-                                   onChange={() => {
+                            <RadioButton status={props.state.cargoScored === 0 ? "checked" : "unchecked"}
+                                   onPress={() => {
                                        props.setState({...props.state, cargoScored: 0})
                                    }}/>
-                            <label>0</label>
+                            <Text>0</Text>
                         </View>
 
                         <View style={styles.input}>
-                            <input type="radio" checked={props.state.cargoScored === 1}
-                                   onChange={() => {
+                            <RadioButton status={props.state.cargoScored === 1 ? "checked" : "unchecked"}
+                                   onPress={() => {
                                        props.setState({...props.state, cargoScored: 1})
                                    }}/>
-                            <label>1</label>
+                            <Text>1</Text>
                         </View>
 
                         <View style={styles.input}>
-                            <input type="radio" checked={props.state.cargoScored === 2}
-                                   onChange={() => {
+                            <RadioButton status={props.state.cargoScored === 2 ? "checked" : "unchecked"}
+                                   onPress={() => {
                                        props.setState({...props.state, cargoScored: 2})
                                    }}/>
-                            <label>2</label>
+                            <Text>2</Text>
                         </View>
                     </View>
 
                     <View style={styles.input}>
                         <View style={styles.input}>
-                            <input type="radio" checked={props.state.cargoScored === 3}
-                                   onChange={() => {
+                            <RadioButton status={props.state.cargoScored === 3 ? "checked" : "unchecked"}
+                                   onPress={() => {
                                        props.setState({...props.state, cargoScored: 3})
                                    }}/>
-                            <label>3</label>
+                            <Text>3</Text>
                         </View>
 
                         <View style={styles.input}>
-                            <input type="radio" checked={props.state.cargoScored === 4}
-                                   onChange={() => {
+                            <RadioButton status={props.state.cargoScored === 4 ? "checked" : "unchecked"}
+                                   onPress={() => {
                                        props.setState({...props.state, cargoScored: 4})
                                    }}/>
-                            <label>4</label>
+                            <Text>4</Text>
                         </View>
 
                         <View style={styles.input}>
-                            <input type="radio" checked={props.state.cargoScored === 5}
-                                   onChange={() => {
+                            <RadioButton status={props.state.cargoScored === 5 ? "checked" : "unchecked"}
+                                   onPress={() => {
                                        props.setState({...props.state, cargoScored: 5})
                                    }}/>
-                            <label>5</label>
+                            <Text>5</Text>
                         </View>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoScored === "notObserved"}
-                               onChange={() => {
+                        <RadioButton status={props.state.cargoScored === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, cargoScored: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
 
-                <h3 style={{justifySelf: "center", alignSelf: "center"}}>Auton Target Goal</h3>
+                <Text style={{justifySelf: "center", alignSelf: "center"}}>Auton Target Goal</Text>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "none"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "none" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "none"})
                                }}/>
-                        <label>None</label>
+                        <Text>None</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "low"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "low" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "low"})
                                }}/>
-                        <label>Low</label>
+                        <Text>Low</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "high"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "high" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "high"})
                                }}/>
-                        <label>High</label>
+                        <Text>High</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "notObserved"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
@@ -127,11 +129,16 @@ export default function Autonomous(props: IProps) {
                 </View>
                 <View style={{flex: 1, height: 1, backgroundColor: 'black'}}/>
             </View>
-        </>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
+    viewer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    },
     container: {
         // @ts-ignore
         display: "grid",
@@ -141,6 +148,7 @@ const styles = StyleSheet.create({
     },
     input: {
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+        alignItems: "center"
     }
 });

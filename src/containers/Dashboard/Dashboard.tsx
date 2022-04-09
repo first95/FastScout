@@ -1,14 +1,13 @@
 import {StyleSheet, View} from "react-native";
-import {useEffect, useRef, useState} from "react";
-import QRCode from 'easyqrcodejs';
+import {useEffect, useState} from "react";
 import {IAutonState, IEndgameState, IPostmatchState, IPreMatchState, ITeleopState} from "./types";
-import styled from "styled-components";
-import {Button} from "react-native-paper";
 import Prematch from "../ScoutFlow/Prematch";
 import Autonomous from "../ScoutFlow/Autonomous";
 import Teleop from "../ScoutFlow/Teleop";
 import Endgame from "../ScoutFlow/Endgame";
 import Postmatch from "../ScoutFlow/Postmatch";
+import QRPage from "../QRPage";
+import {Button} from "react-native-paper";
 
 let initPreMatchState: IPreMatchState = {
     event: "",
@@ -50,7 +49,12 @@ let initPostmatchState: IPostmatchState = {
     comment: ""
 }
 
-export default function Dashboard() {
+interface IProps {
+    teams: any;
+    schedule: any;
+}
+
+export default function Dashboard(props: IProps) {
     const [preMatchState, setPreMatchState] = useState<IPreMatchState>(initPreMatchState);
     const [autonState, setAutonState] = useState<IAutonState>(initAutonState);
     const [teleopState, setTeleopState] = useState<ITeleopState>(initTeleopState);
@@ -58,10 +62,8 @@ export default function Dashboard() {
     const [postmatchState, setPostmatchState] = useState<IPostmatchState>(initPostmatchState);
     const [formVisible, setFormVisible] = useState(true);
     const [qrString, setQrString] = useState("ujelkjdha3kjfh3wkjahfkjdshfkj3hwkdhfkjah");
-    const qrRef = useRef<any>();
 
-    const submitForm = (event: any) => {
-        event.preventDefault();
+    const submitForm = () => {
         console.log("== DEBUG == States: ", preMatchState, autonState, teleopState, endgameState, postmatchState);
 
         let qrCode = "";
@@ -69,45 +71,55 @@ export default function Dashboard() {
         for (let key in preMatchState) { // @ts-ignore
             qrCode += preMatchState[key] + " ";
         }
-        // for (let key in autonState) { // @ts-ignore
-        //     qrCode += autonState[key] + " ";
-        // }
-        // for (let key in teleopState) { // @ts-ignore
-        //     qrCode += teleopState[key] + " ";
-        // }
-        // for (let key in endgameState) { // @ts-ignore
-        //     qrCode += endgameState[key] + " ";
-        // }
-        // for (let key in postmatchState) { // @ts-ignore
-        //     qrCode += postmatchState[key] + " ";
-        // }
+        for (let key in autonState) { // @ts-ignore
+            qrCode += autonState[key] + " ";
+        }
+        for (let key in teleopState) { // @ts-ignore
+            qrCode += teleopState[key] + " ";
+        }
+        for (let key in endgameState) { // @ts-ignore
+            qrCode += endgameState[key] + " ";
+        }
+        for (let key in postmatchState) { // @ts-ignore
+            qrCode += postmatchState[key] + " ";
+        }
 
         console.log("== DEBUG == QR Code string: ", qrCode);
         setQrString(qrCode);
-
         setFormVisible(false);
     }
 
+    const validateData = () => {
+        // TODO: validate state data before QR generation
+    }
+
+    const resetState = () => {
+        setPreMatchState(initPreMatchState);
+        setAutonState(initAutonState);
+        setTeleopState(initTeleopState);
+        setEndgameState(initEndgameState);
+        setPostmatchState(initPostmatchState);
+    }
+
     useEffect(() => {
-        let options = {text: "TEST123"}
-        new QRCode(qrRef.current, options);
-        console.log(qrRef.current.children[0].style.borderRadius = "15px")
-    })
+        // setQrString("TEST123");
+        // setFormVisible(false);
+    }, [props])
 
     return (
         <>
-            <form onSubmit={(event) => submitForm(event)}>
-                {formVisible && (
-                    <View style={styles.container}>
-                        <Prematch state={preMatchState} setState={setPreMatchState}/>
-                        <Autonomous state={autonState} setState={setAutonState}/>
-                        <Teleop state={teleopState} setState={setTeleopState}/>
-                        <Endgame state={endgameState} setState={setEndgameState}/>
-                        <Postmatch state={postmatchState} setState={setPostmatchState}/>
-                        <button type={"submit"}>Create QR Code</button>
-                    </View>
-                )}
-            </form>
+            {formVisible ? (
+                <View style={styles.container}>
+                    <Prematch state={preMatchState} setState={setPreMatchState}/>
+                    <Autonomous state={autonState} setState={setAutonState}/>
+                    <Teleop state={teleopState} setState={setTeleopState}/>
+                    {/*<Endgame state={endgameState} setState={setEndgameState}/>*/}
+                    {/*<Postmatch state={postmatchState} setState={setPostmatchState}/>*/}
+                    <Button onPress={() => submitForm()}>Create QR Code</Button>
+                </View>
+            ) : (
+                <QRPage qrString={qrString} setFormVisible={setFormVisible} resetState={resetState}/>
+            )}
         </>
     )
 }
@@ -117,29 +129,6 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "lightblue"
-    },
-    qrCode: {
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "white"
+        backgroundColor: "white",
     }
 });
-
-const ButtonBox = styled.div`
-  display: flex;
-`;
-
-const MatchString = styled.p`
-  opacity: 0.25;
-  transition: all 0.25s;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 1;
-    transition: all 0.25s;
-  }
-`;
