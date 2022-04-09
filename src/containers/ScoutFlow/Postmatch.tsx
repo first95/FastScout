@@ -1,5 +1,7 @@
 import {StyleSheet, Text, View} from "react-native";
 import {IPostmatchState} from "../Dashboard/types";
+import Header from "../../components/Header";
+import {TextInput} from "react-native-paper";
 
 interface setState {
     (setState: IPostmatchState): void;
@@ -12,139 +14,139 @@ interface IProps {
 
 export default function Postmatch(props: IProps) {
     return (
-        <>
-            <h1>Postmatch</h1>
+        <View style={styles.viewer}>
+            <Header text={"Postmatch"} />
 
             <View style={styles.container}>
-                <h3 style={{justifySelf: "center", alignSelf: "center"}}>Driver Skill</h3>
+                <Text style={{justifySelf: "center", alignSelf: "center"}}>Driver Skill</Text>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.driverSkill === "low"}
-                               onChange={() => {
+                        <input status={props.state.driverSkill === "low"}
+                               onPress={() => {
                                    props.setState({...props.state, driverSkill: "low"})
                                }}/>
-                        <label>Low</label>
+                        <Text>Low</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.driverSkill === "medium"}
-                               onChange={() => {
+                        <input status={props.state.driverSkill === "medium"}
+                               onPress={() => {
                                    props.setState({...props.state, driverSkill: "medium"})
                                }}/>
-                        <label>Medium</label>
+                        <Text>Medium</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.driverSkill === "high"}
-                               onChange={() => {
+                        <input status={props.state.driverSkill === "high"}
+                               onPress={() => {
                                    props.setState({...props.state, driverSkill: "high"})
                                }}/>
-                        <label>High</label>
+                        <Text>High</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.driverSkill === "notObserved"}
-                               onChange={() => {
+                        <input status={props.state.driverSkill === "notObserved"}
+                               onPress={() => {
                                    props.setState({...props.state, driverSkill: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
 
             <View style={styles.container}>
-                <h3 style={{justifySelf: "center", alignSelf: "center"}}>Defense Skill</h3>
+                <Text style={{justifySelf: "center", alignSelf: "center"}}>Defense Skill</Text>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.defenseSkill === "didntDefend"}
-                               onChange={() => {
+                        <input status={props.state.defenseSkill === "didntDefend"}
+                               onPress={() => {
                                    props.setState({...props.state, defenseSkill: "didntDefend"})
                                }}/>
-                        <label>Didn't Defend</label>
+                        <Text>Didn't Defend</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.defenseSkill === "low"}
-                               onChange={() => {
+                        <input status={props.state.defenseSkill === "low"}
+                               onPress={() => {
                                    props.setState({...props.state, defenseSkill: "low"})
                                }}/>
-                        <label>Low</label>
+                        <Text>Low</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.defenseSkill === "medium"}
-                               onChange={() => {
+                        <input status={props.state.defenseSkill === "medium"}
+                               onPress={() => {
                                    props.setState({...props.state, defenseSkill: "medium"})
                                }}/>
-                        <label>Medium</label>
+                        <Text>Medium</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.defenseSkill === "high"}
-                               onChange={() => {
+                        <input status={props.state.defenseSkill === "high"}
+                               onPress={() => {
                                    props.setState({...props.state, defenseSkill: "high"})
                                }}/>
-                        <label>High</label>
+                        <Text>High</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.defenseSkill === "notObserved"}
-                               onChange={() => {
+                        <input status={props.state.defenseSkill === "notObserved"}
+                               onPress={() => {
                                    props.setState({...props.state, defenseSkill: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
 
             <View style={styles.container}>
-                <h3 style={{justifySelf: "center", alignSelf: "center"}}>Defense Tolerance</h3>
+                <Text style={{justifySelf: "center", alignSelf: "center"}}>Defense Tolerance</Text>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.defenseTolerance === "wasntDefended"}
-                               onChange={() => {
+                        <input status={props.state.defenseTolerance === "wasntDefended"}
+                               onPress={() => {
                                    props.setState({...props.state, defenseTolerance: "wasntDefended"})
                                }}/>
-                        <label>Wasn't Defended</label>
+                        <Text>Wasn't Defended</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.defenseTolerance === "low"}
-                               onChange={() => {
+                        <input status={props.state.defenseTolerance === "low"}
+                               onPress={() => {
                                    props.setState({...props.state, defenseTolerance: "low"})
                                }}/>
-                        <label>Low</label>
+                        <Text>Low</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.defenseTolerance === "medium"}
-                               onChange={() => {
+                        <input status={props.state.defenseTolerance === "medium"}
+                               onPress={() => {
                                    props.setState({...props.state, defenseTolerance: "medium"})
                                }}/>
-                        <label>Medium</label>
+                        <Text>Medium</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.defenseTolerance === "high"}
-                               onChange={() => {
+                        <input status={props.state.defenseTolerance === "high"}
+                               onPress={() => {
                                    props.setState({...props.state, defenseTolerance: "high"})
                                }}/>
-                        <label>High</label>
+                        <Text>High</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.defenseTolerance === "notObserved"}
-                               onChange={() => {
+                        <input status={props.state.defenseTolerance === "notObserved"}
+                               onPress={() => {
                                    props.setState({...props.state, defenseTolerance: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
 
-            <label>Comments</label>
-            <textarea value={props.state.comment}
-                      onChange={(event) => props.setState({...props.state, comment: event.target.value})}/>
+            <Text>Comments</Text>
+            <TextInput value={props.state.comment}
+                      onChange={(text) => props.setState({...props.state, comment: text})}/>
 
             {/*Horizontal Rule*/}
             <View style={{flexDirection: 'row', alignItems: 'center', width: "100vw"}}>
@@ -154,11 +156,16 @@ export default function Postmatch(props: IProps) {
                 </View>
                 <View style={{flex: 1, height: 1, backgroundColor: 'black'}}/>
             </View>
-        </>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
+    viewer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    },
     container: {
         // @ts-ignore
         display: "grid", gap: "10px", padding: "10px", gridTemplateColumns: "auto auto",

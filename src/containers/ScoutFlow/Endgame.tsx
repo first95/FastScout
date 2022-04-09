@@ -1,5 +1,7 @@
 import {StyleSheet, Text, View} from "react-native";
-import {IAutonState, IEndgameState} from "../Dashboard/types";
+import {IEndgameState} from "../Dashboard/types";
+import Header from "../../components/Header";
+import {RadioButton} from "react-native-paper";
 
 interface setState {
     (setState: IEndgameState): void;
@@ -12,119 +14,119 @@ interface IProps {
 
 export default function Endgame(props: IProps) {
     return (
-        <>
-            <h1>Endgame</h1>
+        <View style={styles.viewer}>
+            <Header text={"Endgame"}/>
 
             <View style={styles.container}>
-                <h3 style={{justifySelf: "center", alignSelf: "center"}}>Attempted Climb</h3>
+                <Text style={{justifySelf: "center", alignSelf: "center"}}>Attempted Climb</Text>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.attemptedClimb === "bar1"}
-                               onChange={() => {
+                        <RadioButton status={props.state.attemptedClimb === "bar1" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, attemptedClimb: "bar1"})
                                }}/>
-                        <label>Bar 1</label>
+                        <Text>Bar 1</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.attemptedClimb === "bar2"}
-                               onChange={() => {
+                        <RadioButton status={props.state.attemptedClimb === "bar2" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, attemptedClimb: "bar2"})
                                }}/>
-                        <label>Bar 2</label>
+                        <Text>Bar 2</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.attemptedClimb === "bar3"}
-                               onChange={() => {
+                        <RadioButton status={props.state.attemptedClimb === "bar3" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, attemptedClimb: "bar3"})
                                }}/>
-                        <label>Bar 3</label>
+                        <Text>Bar 3</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.attemptedClimb === "bar4"}
-                               onChange={() => {
+                        <RadioButton status={props.state.attemptedClimb === "bar4" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, attemptedClimb: "bar4"})
                                }}/>
-                        <label>Bar 4</label>
+                        <Text>Bar 4</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.attemptedClimb === "notAttempted"}
-                               onChange={() => {
+                        <RadioButton status={props.state.attemptedClimb === "notAttempted" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, attemptedClimb: "notAttempted"})
                                }}/>
-                        <label>Not Attempted</label>
+                        <Text>Not Attempted</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.attemptedClimb === "notObserved"}
-                               onChange={() => {
+                        <RadioButton status={props.state.attemptedClimb === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, attemptedClimb: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
 
             <View style={styles.container}>
-                <h3 style={{justifySelf: "center", alignSelf: "center"}}>Successful Climb</h3>
+                <Text style={{justifySelf: "center", alignSelf: "center"}}>Successful Climb</Text>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.successfulClimb === "bar1"}
-                               onChange={() => {
+                        <RadioButton status={props.state.successfulClimb === "bar1" ? "checked" : 'unstatus'}
+                               onPress={() => {
                                    props.setState({...props.state, successfulClimb: "bar1"})
                                }}/>
-                        <label>Bar 1</label>
+                        <Text>Bar 1</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.successfulClimb === "bar2"}
-                               onChange={() => {
+                        <RadioButton status={props.state.successfulClimb === "bar2" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, successfulClimb: "bar2"})
                                }}/>
-                        <label>Bar 2</label>
+                        <Text>Bar 2</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.successfulClimb === "bar3"}
-                               onChange={() => {
+                        <RadioButton status={props.state.successfulClimb === "bar3" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, successfulClimb: "bar3"})
                                }}/>
-                        <label>Bar 3</label>
+                        <Text>Bar 3</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.successfulClimb === "bar4"}
-                               onChange={() => {
+                        <RadioButton status={props.state.successfulClimb === "bar4" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, successfulClimb: "bar4"})
                                }}/>
-                        <label>Bar 4</label>
+                        <Text>Bar 4</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.successfulClimb === "none"}
-                               onChange={() => {
+                        <RadioButton status={props.state.successfulClimb === "none" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, successfulClimb: "none"})
                                }}/>
-                        <label>None</label>
+                        <Text>None</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.successfulClimb === "notAttempted"}
-                               onChange={() => {
+                        <RadioButton status={props.state.successfulClimb === "notAttempted" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, successfulClimb: "notAttempted"})
                                }}/>
-                        <label>Not Attempted</label>
+                        <Text>Not Attempted</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.successfulClimb === "notObserved"}
-                               onChange={() => {
+                        <RadioButton status={props.state.successfulClimb === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, successfulClimb: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
@@ -133,51 +135,51 @@ export default function Endgame(props: IProps) {
                 <h3 style={{justifySelf: "center", alignSelf: "center"}}>Climb Time</h3>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.climbTime === "0-10s"}
-                               onChange={() => {
+                        <RadioButton status={props.state.climbTime === "0-10s" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, climbTime: "0-10s"})
                                }}/>
-                        <label>0 - 10 Seconds</label>
+                        <Text>0 - 10 Seconds</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.climbTime === "10-20s"}
-                               onChange={() => {
+                        <RadioButton status={props.state.climbTime === "10-20s" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, climbTime: "10-20s"})
                                }}/>
-                        <label>10 - 20 Seconds</label>
+                        <Text>10 - 20 Seconds</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.climbTime === "20-30s"}
-                               onChange={() => {
+                        <RadioButton status={props.state.climbTime === "20-30s" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, climbTime: "20-30s"})
                                }}/>
-                        <label>20 - 30 Seconds</label>
+                        <Text>20 - 30 Seconds</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.climbTime === ">30s"}
-                               onChange={() => {
+                        <RadioButton status={props.state.climbTime === ">30s" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, climbTime: ">30s"})
                                }}/>
-                        <label>{">"}30 Seconds</label>
+                        <Text>{">"}30 Seconds</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.climbTime === "notAttempted"}
-                               onChange={() => {
+                        <RadioButton status={props.state.climbTime === "notAttempted" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, climbTime: "notAttempted"})
                                }}/>
-                        <label>Not Attempted</label>
+                        <Text>Not Attempted</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.climbTime === "notObserved"}
-                               onChange={() => {
+                        <RadioButton status={props.state.climbTime === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, climbTime: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
@@ -186,35 +188,35 @@ export default function Endgame(props: IProps) {
                 <h3 style={{justifySelf: "center", alignSelf: "center"}}>Shot Accuracy</h3>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shotAccuracy === "low"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shotAccuracy === "low" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotAccuracy: "low"})
                                }}/>
-                        <label>Low</label>
+                        <Text>Low</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shotAccuracy === "medium"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shotAccuracy === "medium" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotAccuracy: "medium"})
                                }}/>
-                        <label>Medium</label>
+                        <Text>Medium</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shotAccuracy === "high"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shotAccuracy === "high" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotAccuracy: "high"})
                                }}/>
-                        <label>High</label>
+                        <Text>High</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio"checked={props.state.shotAccuracy === "notObserved"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shotAccuracy === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shotAccuracy: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
@@ -223,44 +225,44 @@ export default function Endgame(props: IProps) {
                 <h3 style={{justifySelf: "center", alignSelf: "center"}}>Target Goal</h3>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio"
-                               checked={props.state.targetGoal === "none"}
-                               onChange={() => {
+                        <RadioButton
+                               status={props.state.targetGoal === "none" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "none"})
                                }}/>
-                        <label>None</label>
+                        <Text>None</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "low"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "low" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "low"})
                                }}/>
-                        <label>Low</label>
+                        <Text>Low</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "high"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "high" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "high"})
                                }}/>
-                        <label>High</label>
+                        <Text>High</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "both"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "both" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "both"})
                                }}/>
-                        <label>Both</label>
+                        <Text>Both</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.targetGoal === "notObserved"}
-                               onChange={() => {
+                        <RadioButton status={props.state.targetGoal === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, targetGoal: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
@@ -269,43 +271,43 @@ export default function Endgame(props: IProps) {
                 <h3 style={{justifySelf: "center", alignSelf: "center"}}>Cargo Intake</h3>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoIntake === "none"}
-                               onChange={() => {
+                        <RadioButton status={props.state.cargoIntake === "none" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, cargoIntake: "none"})
                                }}/>
-                        <label>None</label>
+                        <Text>None</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoIntake === "terminal"}
-                               onChange={() => {
+                        <RadioButton status={props.state.cargoIntake === "terminal" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, cargoIntake: "terminal"})
                                }}/>
-                        <label>Terminal</label>
+                        <Text>Terminal</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoIntake === "ground"}
-                               onChange={() => {
+                        <RadioButton status={props.state.cargoIntake === "ground" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, cargoIntake: "ground"})
                                }}/>
-                        <label>Ground</label>
+                        <Text>Ground</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoIntake === "both"}
-                               onChange={() => {
+                        <RadioButton status={props.state.cargoIntake === "both" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, cargoIntake: "both"})
                                }}/>
-                        <label>Both</label>
+                        <Text>Both</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.cargoIntake === "notObserved"}
-                               onChange={() => {
+                        <RadioButton status={props.state.cargoIntake === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, cargoIntake: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
@@ -314,43 +316,43 @@ export default function Endgame(props: IProps) {
                 <h3 style={{justifySelf: "center", alignSelf: "center"}}>Shooting Spot</h3>
                 <View>
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shootingSpot === "none"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shootingSpot === "none" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shootingSpot: "none"})
                                }}/>
-                        <label>None</label>
+                        <Text>None</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shootingSpot === "close"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shootingSpot === "close" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shootingSpot: "close"})
                                }}/>
-                        <label>Close</label>
+                        <Text>Close</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shootingSpot === "far"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shootingSpot === "far" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shootingSpot: "far"})
                                }}/>
-                        <label>Far</label>
+                        <Text>Far</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shootingSpot === "adjustable"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shootingSpot === "adjustable" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shootingSpot: "adjustable"})
                                }}/>
-                        <label>Adjustable</label>
+                        <Text>Adjustable</Text>
                     </View>
 
                     <View style={styles.input}>
-                        <input type="radio" checked={props.state.shootingSpot === "notObserved"}
-                               onChange={() => {
+                        <RadioButton status={props.state.shootingSpot === "notObserved" ? "checked" : "unchecked"}
+                               onPress={() => {
                                    props.setState({...props.state, shootingSpot: "notObserved"})
                                }}/>
-                        <label>Not Observed</label>
+                        <Text>Not Observed</Text>
                     </View>
                 </View>
             </View>
@@ -363,15 +365,20 @@ export default function Endgame(props: IProps) {
                 </View>
                 <View style={{flex: 1, height: 1, backgroundColor: 'black'}}/>
             </View>
-        </>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
+    viewer: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    },
     container: {
         // @ts-ignore
         display: "grid", gap: "10px", padding: "10px", gridTemplateColumns: "auto auto",
     }, input: {
-        display: "flex", flexDirection: "row"
+        display: "flex", flexDirection: "row", alignItems: 'center'
     }
 });

@@ -113,8 +113,8 @@ export default function Dashboard(props: IProps) {
                     <Prematch state={preMatchState} setState={setPreMatchState}/>
                     <Autonomous state={autonState} setState={setAutonState}/>
                     <Teleop state={teleopState} setState={setTeleopState}/>
-                    {/*<Endgame state={endgameState} setState={setEndgameState}/>*/}
-                    {/*<Postmatch state={postmatchState} setState={setPostmatchState}/>*/}
+                    <Endgame state={endgameState} setState={setEndgameState}/>
+                    <Postmatch state={postmatchState} setState={setPostmatchState}/>
                     <Button onPress={() => submitForm()}>Create QR Code</Button>
                 </View>
             ) : (
