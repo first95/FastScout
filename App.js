@@ -16,8 +16,8 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                {/*<Stack.Screen name={"Start"} component={(props) => <Start setTeams={setTeams} setSchedule={setSchedule} {...props}/>}*/}
-                {/*              options={{headerTitle: (props) => <LogoTitle {...props} />}}/>*/}
+                <Stack.Screen name={"Start"} component={(props) => <Start setTeams={setTeams} setSchedule={setSchedule} {...props}/>}
+                              options={{headerTitle: (props) => <LogoTitle {...props} />}}/>
                 <Stack.Screen name={"Dashboard"} component={Dashboard}
                               options={{headerTitle: (props) => <LogoTitle {...props} />}}/>
             </Stack.Navigator>
